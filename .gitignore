@@ -21,7 +21,10 @@ bin/
 *.suo
 *.log
 *.tlog
-build
 node_modules
 CMakeSettings.json
 xcuserdata/
+/libcv
+/build
+/build_arm64
+/build_x86_64
