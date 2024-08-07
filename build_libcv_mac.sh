@@ -9,7 +9,7 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_INSTALL_PREFIX=../libcv/arm64 \
 -D BUILD_LIST=calib3d,core,features2d,highgui,imgcodecs,imgproc,video,videoio \
 -D BUILD_opencv_world=ON \
--D CMAKE_CXX_STANDARD=17 \
+-D CMAKE_CXX_STANDARD=20 \
 -D CMAKE_OSX_ARCHITECTURES=arm64 \
 ..
 cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config release
@@ -23,7 +23,7 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_INSTALL_PREFIX=../libcv/x86_64 \
 -D BUILD_LIST=calib3d,core,features2d,highgui,imgcodecs,imgproc,video,videoio \
 -D BUILD_opencv_world=ON \
--D CMAKE_CXX_STANDARD=17 \
+-D CMAKE_CXX_STANDARD=20 \
 -D CMAKE_OSX_ARCHITECTURES=x86_64 \
 ..
 cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config release
