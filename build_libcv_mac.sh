@@ -12,7 +12,9 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_CXX_STANDARD=20 \
 -D CMAKE_OSX_ARCHITECTURES=arm64 \
 ..
+cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config debug
 cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config release
+cmake --build . --target install --config debug
 cmake --build . --target install --config release
 cd ..
 
@@ -26,6 +28,8 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_CXX_STANDARD=20 \
 -D CMAKE_OSX_ARCHITECTURES=x86_64 \
 ..
+cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config debug
 cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1)) --config release
+cmake --build . --target install --config debug
 cmake --build . --target install --config release
 cd ..
