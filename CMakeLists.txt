@@ -150,6 +150,7 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)  # https://cmake.org/cmake/help/
     set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
   endif()
 endif()
+message(STATUS "Installing to: ${CMAKE_INSTALL_PREFIX}")
 
 enable_testing()
 
