@@ -13,7 +13,7 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_OSX_ARCHITECTURES=arm64 \
 -D CMAKE_BUILD_TYPE=Debug \
 ..
-cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1))
+cmake --build . -j $(($(sysctl -n hw.logicalcpu) - 1))
 cmake --build . --target install
 cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_INSTALL_PREFIX=../libcv/arm64/release \
@@ -23,7 +23,7 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_OSX_ARCHITECTURES=arm64 \
 -D CMAKE_BUILD_TYPE=Release \
 ..
-cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1))
+cmake --build . -j $(($(sysctl -n hw.logicalcpu) - 1))
 cmake --build . --target install
 cd ..
 
@@ -38,7 +38,7 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_OSX_ARCHITECTURES=x86_64 \
 -D CMAKE_BUILD_TYPE=Debug \
 ..
-cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1))
+cmake --build . -j $(($(sysctl -n hw.logicalcpu) - 1))
 cmake --build . --target install
 cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_INSTALL_PREFIX=../libcv/x86_64/release \
@@ -48,6 +48,6 @@ cmake -D BUILD_SHARED_LIBS=ON \
 -D CMAKE_OSX_ARCHITECTURES=x86_64 \
 -D CMAKE_BUILD_TYPE=Release \
 ..
-cmake --build -- -j $(($(sysctl -n hw.logicalcpu) - 1))
+cmake --build . -j $(($(sysctl -n hw.logicalcpu) - 1))
 cmake --build . --target install
 cd ..

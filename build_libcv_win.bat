@@ -13,10 +13,11 @@ cmake -D BUILD_SHARED_LIBS=ON ^
 -D CMAKE_CXX_STANDARD=20 ^
 -G "Visual Studio 17 2022" ^
 ..
-cmake --build . -- -j $(($(wmic cpu get NumberOfLogicalProcessors) - 1)) --config debug
-cmake --build . -- -j $(($(wmic cpu get NumberOfLogicalProcessors) - 1)) --config release
-cmake --build .  --target install --config debug
-cmake --build .  --target install --config release
+for /f "tokens=2 delims==" %%a in ('wmic cpu get NumberOfLogicalProcessors /value ^| find "="') do set /a LOGICAL_CORES=%%a-1
+cmake --build . --config debug -j %LOGICAL_CORES%
+cmake --build . --config release -j %LOGICAL_CORES%
+cmake --build . --config debug --target install
+cmake --build . --config release --target install
 cd ..
 
 exit /b
